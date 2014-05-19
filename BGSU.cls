@@ -24,6 +24,24 @@
 % fleqn
 % openbib
 % colorlinks
+%    This file is part of BGSU.cls The BGSU (Thesis and Dissertaion LaTeX class)
+%
+%    BGSU.cls is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 3 of the License, or
+%    (at your option) any later version.
+%
+%    BGSU.cls is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with BGSU.cls  If not, see <http://www.gnu.org/licenses/>.
+%
+%    Note that this only applies to the example and template files and BGSU.cls 
+%    itself. Any actual document content (such as your thesis or dissertation text)
+%    belongs solely to you and you can do with it what you please.
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{BGSU}[6/03/2011 version 1.1.2]
