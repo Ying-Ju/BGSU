@@ -1,0 +1,354 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><title>BGSU LaTeX Class</title>
+<meta http-equiv="pragma" content="nocache">
+<meta content="Nate Iverson, LaTeX, BGSU, Thesis, Dissertation" name="keywords"></head><body fgcolor="black" bgcolor="white"><font face="helvetica, arial">
+
+<a name="TOP">
+</a></font><h1><a name="TOP"><font face="helvetica, arial">BGSU LaTeX Document Class</font></a></h1><a name="TOP">
+<font face="helvetica, arial"> This document is an implementation of 
+Bowling Green State University's Thesis and Dissertation Formating into a 
+LaTeX2e Class.</font>
+<br>
+</a>
+<hr>
+<h2><font face="helvetica, arial">Navigation</font></h2>
+<ul>
+<li><a href="#links">Links</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#downloads">Downloads</a></li>
+<li><a href="#pdf">Converting to PDF </a></li>
+<li><a href="#problems">Common problems</a></li>
+</ul>
+<hr>
+<a name="software"><h2><font face="helvetica, arial">Software</font></h2></a>
+<ul>
+<li><a href="http://www.miktex.org/">MikTeX</a> (a windows LaTeX distribution)</li>
+<li><a href="http://sourceforge.net/projects/texniccenter/">TeXnicCenter</a> 
+(A free windows LaTeX integrated editing environment).
+</li>
+<li><a href="http://www.uoregon.edu/%7Ekoch/texshop/">TeXShop</a> (A free OS X LaTeX frontend / editor)
+</li>
+<li> I don't know what LaTeX distribution would be good for OS X. So I'll leave finding it up to you.  </li>
+</ul>
+<hr>
+
+<a name="links"><h2><font face="helvetica, arial">Links</font></h2></a>
+  <ul>
+  <li><a href="http://www.bgsu.edu/downloads/gradcol/file73779.pdf"> BGSU T/D Handbook</a></li>
+<li><a href="http://www-h.eng.cam.ac.uk/help/tpl/textprocessing/extending_latex.html">Cambridge University Engineering Department - Extending LaTeX</a>
+ I've found their list of commands quite helpful.
+</li>
+<li><a href="http://personal.bgsu.edu/%7Ezirbel/592/latex/latex_basics.htm">Craig Zirbel's LaTeX basics</a>
+</li>
+<li><a href="http://www-math.bgsu.edu/%7Egwade/tex_examples/">Gordon Wade's Example LaTeX files</a>
+</li><li><a href="http://www.bgsu.edu/departments/math/">BGSU Math &amp; Stat Page</a>
+</li>
+<li><a href="http://www.sosmath.com/CBB/viewforum.php?f=16">SOSmath LaTeX reference </a> Good place to find commands.. 
+no page formatting or file processing since it is for a bulletin board.
+</li>
+</ul>
+<hr>
+<a name="about"><h2><font face="helvetica, arial">About</font></h2></a>
+<font face="helvetica, arial"> The LaTeX2e class I've made should be able to 
+take care of any and all thesis and dissertation formatting needs for anyone
+at BGSU (you are still responsible for formatting your bibliography and 
+reference styles, for mathematics the default LaTeX bibliography format 
+is most likely good enough). It is based on the usual latex <tt>book</tt> class
+So should have many of its features, though I've had to gut a few things to 
+make them conform to BGSU standards.
+
+</font>
+<p>
+<table class="ntable" border="0" cellpadding="3" cellspacing="0" width="80%"><tbody><tr>
+<td class="infohead" bgcolor="#7a5ada"><p class="caption">
+<small><font color="white" face="helvetica, arial">
+<b>The Basics</b></font></small></p></td></tr>
+<tr>
+<td bgcolor="#bbffbb"><font color="black" face="helvetica, arial">
+<li> Download the file <tt>BGSU.cls</tt> and place it in a directory with
+your (future) dissertation.</li>
+<li> 
+In your preamble to your document change your <tt>documentclass</tt> to the 
+following: 
+<pre>
+\documentclass{BGSU}
+
+</pre>
+
+If you are doing a masters thesis you need to pass the option thesis to the
+class
+<pre>
+\documentclass[thesis]{BGSU}
+
+</pre>
+</li>
+<li> put something like the following in your preamble too
+<pre>
+\title{Example Dissertation}
+\author{Nate Iverson}
+\date{February 2006}
+\degree{Doctor of Philosophy}
+\advisor{Corneliu Hoffman}
+\gfr{Sri Kolla} % only needed if doctoral thesis
+\committee{Warren McGovern\\ \\ Neal Carothers}
+
+</pre>
+</li>
+<li> Then inside the <tt>document</tt> environment put the following:
+<pre>\frontmatter
+\maketitle
+
+</pre>
+
+To get your title page.
+</li>
+
+<li> An Abstract is not optional and has some requirements.. An environment is provided so after the above
+
+<pre>
+\begin{abstract}
+   "Your abstract here"
+\end{abstract}
+
+</pre>
+</li>
+<li> You also probably want to thank all the people who helped you. There's a 
+section for this too:
+
+<pre>
+\begin{acknowledegments}
+   "Thank people here"
+\end{acknowledegments}
+
+</pre>
+</li>
+<li> You have to list your table of contents.. which LaTeX can generate 
+automatically. If you have 3 or more figures, tables of "illustrations" 
+these must be included also. (You may have to do a list of illustrations 
+by hand if you have any). For the references to work correctly, you must TeX 
+the files twice.
+
+<pre>
+\tableofcontents
+
+\listoffigures
+
+\listoftables
+
+\mainmatter
+</pre>
+
+The <tt>mainmater</tt> command starts the pagenumbering for the main section.
+now you are ready to begin your main document.
+
+</li>
+
+</font></td></tr>
+</tbody></table>
+
+
+<a name="downloads"></a></p><h2><a name="downloads"><font face="helvetica, arial">Downloads</font></a></h2>
+<font face="helvetica, arial">
+Below is an example template for a dissertation <tt>template.tex</tt>. 
+And the class <tt>BGSU.cls</tt>. It is likely BGSU.cls will change until I 
+get everything just right, but that should be relatively soon. If some aspect
+of the formatting specified by this file is not correct or does not meet the 
+standards linked to above, please let me know I'll try to fix it.<br>
+
+<tt>example.tex</tt> Is more of a self contained example given to show more of 
+the things you can do with <tt>BGSU.cls</tt>.
+<br><br>
+
+All documents are licensed for your use under the 
+<a href="http://www.gnu.org/copyleft/gpl.html"> GPL </a> version 2 or later.
+
+.</font><p><table class="ntable" border="0" cellpadding="3" cellspacing="0" width="80%"><tbody><tr>
+<td class="infohead" bgcolor="#7a5ada"><p class="caption">
+<small><font color="white" face="helvetica, arial">
+<b>Downloads</b></font></small></p></td></tr>
+<tr>
+<td bgcolor="#bbffbb"><font color="black" face="helvetica, arial">
+<li> <a href="http://www-math.bgsu.edu/%7Einathan/template.tex" target="_self" type="text/plain">template.tex</a> version 1.3 
+</li>
+<li><a href="http://www-math.bgsu.edu/%7Einathan/example.tex" type="text/plain">example.tex</a> version 1.3
+</li>
+<li><a href="http://www-math.bgsu.edu/%7Einathan/titlepage.tex" type="text/plain">titlepage.tex</a> version 1.0
+Example output <a href="http://www-math.bgsu.edu/%7Einathan/titlepage.pdf">titlepage.pdf</a>
+</li>
+<li> <a href="http://www-math.bgsu.edu/%7Einathan/BGSU.cls" type="application/x-latex"> BGSU.cls </a> version 1.1.2 ( 6 / 3 / 2011)
+(Right Click and Save As)
+</li>
+<li><a href="http://www-math.bgsu.edu/%7Einathan/Changelog.txt">Changelog.txt</a>
+</li>
+</font></td></tr></tbody></table>
+
+<a name="pdf"></a></p><h2><a name="pdf"><font face="helvetica, arial">Converting to pdf</font></a></h2>
+<font face="helvetica, arial">
+There are threee different ways you can convert a latex file into
+a pdf that are supported by this document class 
+<ul>
+<li><tt>latex</tt> then <tt>dvips</tt> then <tt>ps2pdf</tt></li>
+<li><tt>latex</tt> then <tt>dvipdfm</tt> (sometimes called just dvipdf).</li>
+<li><tt>pdflatex (used by TeXShop and TeXify to PDF) *Default</tt>
+</li></ul>
+The document class will  make pdf hyperlinks for references and the 
+table of contents. It also makes pdf bookmarks like the graduate college wants
+on your dissertation. However, the document class needs to know how you are
+going to convert to pdf.
+
+.</font>
+
+
+</tt></tt></ul></font></td></tr></tbody></table>
+<p><table class="ntable" border="0" cellpadding="3" cellspacing="0" width="80%"><tbody><tr>
+<td class="infohead" bgcolor="#7a5ada"><p class="caption">
+<small><font color="white" face="helvetica, arial">
+<b>Converting to a pdf</b></font></small></p></td></tr>
+<tr>
+
+<td bgcolor="#bbffbb"><font color="black" face="helvetica, arial">
+<ul>
+
+</pre></li>
+
+<li> Using <tt>pdflatex</tt>
+Is now the recommended and default method of converting to pdf. 
+
+<pre>
+\documentclass{BGSU} * Since default or
+\documentclass[pdftex]{BGSU}
+</pre>
+<font color="blue">NOTE:</font> <tt>pdftex</tt> is the option needed for 
+TeXShop and for the <b>TeXify To PDF</b> option in MikTeX.
+</li>
+<li> other options <tt>dvips</tt> are avaialbe <tt>dvipdfm</tt>
+
+</tr></p>
+
+<p><table class="ntable" border="0" cellpadding="3" cellspacing="0" width="80%"><tbody><tr>
+<td class="infohead" bgcolor="#7a5ada"><p class="caption">
+<small><font color="white" face="helvetica, arial">
+<b>Embedding PDF fonts</b></font></small></p></td></tr>
+<tr>
+
+<td bgcolor="#bbffbb"><font color="black" face="helvetica, arial">
+<ul>
+Recent versions of TeXLive and MikTeX have the correct settings for pdflatex to embed fonts. This has been tested on Linux, Mac with TeXShop and Windows 7 with MikTeX. 
+
+Check your final document in adobe acrobat reader. Go to <tt>File->Properties</tt> and click on the <tt>Fonts</tt> tab. Make sure all the fonts say embedded subset
+
+If they don't try the following 1st update your tex distribution and try again if this doesn't work the following may help (proceed with caution).
+
+<li>Windows</li> You need to find and edit the file <tt>updmap.cfg</tt> for your MikTeX distribution (locations may vary). I'd make a copy of the file just in case.
+Edit the lines that look like this (Write works better than notepad):
+<pre>
+dvipsPreferOutline false
+dvipsDownloadBase35 false  
+pdftexDownloadBase14 false 
+dvipdfmDownloadBase14 false
+</pre>
+To instead look like this 
+<pre>
+dvipsPreferOutline true
+dvipsDownloadBase35 true  
+pdftexDownloadBase14 true 
+dvipdfmDownloadBase14 true
+</pre>
+
+Then from the command line run:
+<pre>
+initexmf --mkfonts --mklinks
+</pre>
+
+<li>Mac and Linux (Unix)</li> Open a terminal and run the following:
+
+<pre>
+sudo updmap-sys --setoption dvipsPreferOutline true --setoption LW35 URW --setoption dvipsDownloadBase35 true  --setoption pdftexDownloadBase14 true --setoption dvipdfmDownloadBase14 true
+</pre>
+or if you don't have super user privilages
+<pre>
+updmap --setoption dvipsPreferOutline true --setoption LW35 URW --setoption dvipsDownloadBase35 true  --setoption pdftexDownloadBase14 true --setoption dvipdfmDownloadBase14 true
+</pre>
+
+If that still doesn't work check to see that font's are embedded on all your pdf files included as graphics. These should be able to be <a href="http://help.adobe.com/en_US/Acrobat/9.0/Standard/WS58a04a822e3e50102bd615109794195ff-7c75.w.html">fixed individually using adobe acrobat</a>.
+
+<br>
+<font color="blue">NOTE:</font> If all else fails try on someone elses computer (Mac's seem to have a good setup).
+
+</tr>
+
+</tt></tt></ul></font></td></tr></tbody></table>
+<p><table class="ntable" border="0" cellpadding="3" cellspacing="0" width="80%"><tbody><tr>
+<td class="infohead" bgcolor="#7a5ada"><p class="caption">
+<small><font color="white" face="helvetica, arial">
+<b>Some stray links</b></font></small></p></td></tr>
+<tr>
+
+<td bgcolor="#bbffbb"><font color="black" face="helvetica, arial">
+<ul>
+
+</pre></li>
+<li>
+Sometimes when a section is at the very top of a page the pdfbookmark to that section will go to the section (a little lower than the top of the page). It has been requested that these link to the top of the page instead. To accomodate this request, put in your final document a command <tt>\linktotop</tt> before the offending section:
+<pre>
+\linktotop
+\section{This section is at the top of the page}
+</pre>
+
+</li>
+<li>
+<tt>\pdfbookmark[#]{Bookmark name}{anchorname}</tt> can be used to place a bookmark in a place that's not a section. The # is the level, 0 chapter, 1 section, 2 subsection etc. For example
+<pre>
+\pdfbookmark[2]{A residue that is the Petersen Graph}{PetersonGraph}
+</pre> 
+</li>
+<li>
+<tt>\addtocbookmark{depth}{Name}</tt> Can be used to add important theorems to both the table of contents and pdfbookmarks
+<pre>
+\begin{thm}[Witt's Theorem]\label{thm:Witt}
+\addtocbookmark{subsection}{Witt's Theorem}
+</pre>
+</li>
+</tt></tt></ul></font></td></tr></tbody></table>
+<a name="problems">
+</a></p><h2><a name="problems">Common Problems</a></h2>
+<ul>
+<li><b>Why are my margins messed up?</b> 
+The most common reason for this is the paper size. MikTeX 
+(and other TeX distributions) have a4paper as the default paper size. Even 
+though you may specify the paper size in the LaTeX file as BGSU.cls does, 
+some of the utilities that convert TeX to pdf ignore your specified page 
+size and set it to a4. To see if this is your problem look under the document 
+info in adobe to see the page size, if it is not 8.5x11 inches then this is 
+your problem. Beware that adobe will try to fit an a4 document to letter 
+paper for printing, this can have some quite chaotic results on the margins.<br><br>
+
+As it is set up if you carefully follow the directions about converting to pdf.
+I think the document class will actually give you the correct pagesize. 
+So check to see how you compiled it matches your options.
+
+<br><br>
+
+To change your default paper size in MikTeX see the following: 
+<a href="http://www-math.bgsu.edu/%7Einathan/fixing_letterpaper_miktex.html">Setting letter paper as default in MikTeX</a></li><br>
+
+
+</li></ul>
+
+<p></p><h3><font face="helvetica, arial">Disclaimer</font></h3>
+<p>
+<font face="helvetica, arial">
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <a href=
+"http://www.gnu.org/licenses">http://www.gnu.org/licenses</a>
+</body></html>

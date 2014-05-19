@@ -1,0 +1,64 @@
+\documentclass{BGSU}
+% template.tex version 1.3
+
+\title{TITLE}
+\author{YOUR NAME}
+\degree{THE DEGREE}
+\date{MONTH YEAR}
+\advisor{YOUR ADVISOR}
+\gfr{YOUR GRADUATE FACULTY REP} % graduate faculty representative
+\committee{COMMITTEE MEMBER 3 \\ \\ COMMITTEE MEMEBER 4 \\ \\ COMMITTEE MEMEBER 5}
+
+\begin{document}
+
+\frontmatter
+
+\maketitle 
+
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+
+% optional section ``Some students choose to personalize their manuscripts 
+% with an appropriate quotation or illustration''
+% formatting and placement is up to you.
+\begin{dedication}
+\input{dedication}
+\end{dedication}
+
+% optional but encouraged section ``as a means to recognize and express 
+% appreciation to the people who were influential in preparing and completing
+% the manuscript''
+\begin{acknowledgments}
+\input{acknowledgments}
+\end{acknowledgments}
+
+\tableofcontents
+
+\listoffigures
+
+\listoftables
+
+\mainmatter % starts over page counter and gives regular page numbers
+
+\chapter{Chapter Title}
+\input{chapter1}
+
+\chapter{Chapter Title}
+\input{chapter2}
+
+\chapter{Chapter Title}
+\input{chapter3}
+
+\backmatter
+
+\bibliography{biblio} 
+% for using bibtex (you may use other bibliography types)
+
+
+
+\appendix
+
+\end{document}
+
+

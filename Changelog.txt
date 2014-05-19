@@ -1,0 +1,198 @@
+v 1.0.3 6/08/2006
+  This is a minor revision, most changes are subtle improvements on how 
+  files are processed to pdf.
+
+  I changed where the \hypersetup appears. 
+  This makes it so that the pdfauthor pdftitle pdfkeywords now actually
+  contain the info they are supposed to. 
+
+  You can now manually set the keywords that the pdf will have by
+  placing a 
+    \keywords{}
+  in the preamble to your document. Otherwise the default keywords 
+  are the author and the title.
+
+  Tried to add Unicode to the pdf format to make more accessible.
+
+  Make pdf creator include a reference to BGSU.cls and the version number for
+  easier debugging.
+
+v 1.0.2 6/03/2006
+  Changed the bibliography environment to automatically place it in the table 
+  of contents.
+
+v 1.0.1 5/30/2006
+
+  Agata has pointed out to me that sometimes that class is adding extra spaces 
+  between paragraphs trying to fill the page. I have added the appropriate 
+  \raggedbottom command to fix this.
+
+****************** WARNING ******************
+****** These directions are outdated ********
+
+  Agata also requested how to make the bibliography appear in the table of 
+  contents. Placing an 
+
+  \addcontentsline{toc}{chapter}{\bibname}
+
+  right after your bibliography works. I have updated example.tex and 
+  template.tex to reflect this.
+************End Warning ********************
+*********************************************
+  I've added an option to the class to make the right margin "ragged"
+  
+  \documentclass[raggedright]{BGSU}
+
+  This is not the standard \raggedright command (a quick google search 
+  will produce documents telling why this ragged right is way too ugy.) 
+  This is actually the \RaggedRight command from the package ragged2e.sty
+  If anyone can test this please let me know how it works / looks. If it is 
+  okay I will make it the default.
+
+  -nate
+
+v 1.0.0 2/24/2006
+  
+  This is the first full release! All future releases will be based on fixes
+  that people using this request and little bugs I might find. Here is what 
+  Deborah Smith had to say about the formatting so far 
+  (this is not a guarantee).
+
+    Nate,
+
+
+    I think you've done a really good job with this. I wouldn't have a
+    problem with approving a manuscript formatted in this manner. Your fellow
+    students should be very grateful for your efforts.
+
+
+    Deb
+
+  Fixed the way pdfbookmarks are generated so they do not appear in table of
+  contents.
+
+  Also changed the way the table of contents, list of figures, list of tables
+  are generated, so the pdfbookmark does not cut off section heading.
+  
+  Changed the formatting of pdfbookmarks and table of contents 
+  so that reads like:
+  
+  Chapter 1 : Ch title
+
+v 0.9.7 2/22/2006
+
+  Added alternative spelling for acknowledgments: acknowledgements
+  so \begin{acknowledgements} will work also and spell the title the way 
+  you want. As far as I can tell both are valid spellings:
+
+  http://dictionary.reference.com/search?q=acknowledgement&db=*
+  http://en.wiktionary.org/wiki/acknowledgement#Alternative_spellings
+
+  As far as I can tell the BGSU T/D handbook is using the UK spelling,
+  why I have no idea.
+
+  http://www.bgsu.edu/colleges/gradcol/tdhandbook/tdhdbktoc.htm
+
+
+v 0.9.6 2/15/2006
+
+  Revised table of contents to try to more closely match ohiolink pdf 
+  bookmarks. Still waiting to hear about the grad colleges opinion on this
+  especially since LaTeX tends to make much more usable menulayers than
+  what the graduate college has been adding.
+
+v 0.9.5 2/14/2006
+    
+  Adjusted spacing for the masters thesis title page to more closely match
+  graduate colleges' guidelines.
+
+v 0.9.4 2/14/2006
+  
+  Added option "thesis" to class to take care of differences in title page 
+  between a masters thesis and doctoral dissertation.
+
+v 0.9.3 2/12/2006
+
+  Fixed abstract environment typo.
+
+v 0.9.2 2/10/2006
+
+   I'm waiting to hear from my contact in the graduate college on how the
+   PDF bookmarks should be formatted. She is not going to be back till next
+   Thursday, so there may not be an update for a little while.
+   
+   Fixed geometry to be the "exact" standard specified by T/D Handbook.
+   This took so long because something is messed up in my dvi processing 
+   subsystem. I've verified that the geometry is correct on Doug's laptop.
+   On a personal note, I think I know how to get my files correct now :-)
+
+   Added references to table of contents for abstract, table of contents, 
+   titlepage, listoffigures and listoftables. 
+   This makes them appear as PDF bookmarks!
+
+   Fixed some typos in the DeclareOptions
+
+   Added some options to be passed to hyperref. These options depend on how
+   you want to convert your document to pdf and ensure that your chapter 
+   and section titles are made to be bookmarks. The options are as follows:
+
+     dvips (default) If you use latex then dvips then ps2pdf to convert to pdf
+     dvipdfm	     If you use latex then dvipdfm to convert to pdf
+     pdftex	     If you use pdflatex to directly make pdf from tex
+
+   Tried to do more elegant hack for the \chapter command.. The failed 
+   attempt is commented out in the file.. I don't know why this doesn't work
+   :-P 
+
+v 0.9.1 2/9/2006
+  
+  Fixed the way BGSU.cls changes the page numbering. Now we simply pass the 
+  argument: oneside to the book class. 
+  (this may make it easier to switch to a different class if necessary)
+
+  Added the following options that can be passed to the book environment:
+  % a4paper
+  % a5paper
+  % b5paper
+  % letterpaper
+  % legalpaper
+  % executivepaper
+  % landscape
+  % draft
+  % final
+  % openright
+  % openany
+  % leqno
+  % fleqn
+  % openbib
+  To access simply place in options on documentclass line
+  
+  Adjusted spacing to be more correct in  \maketitle command.
+
+  Added option runningheaders to use specify
+
+  \documentclass[runningheaders]{BGSU}
+
+  by default this option is off. Currently the grad college will accept
+  running headers (supposedly) but officially they do not.
+
+  Made "Advisor" appear on correct line in \maketitle command.
+
+  Changed dedication environment to center text and move 2.5in down page
+
+v 0.9 2/8/2006
+  Fixed page numbering for new chapters.
+  
+  Fixed copyright page so that copyright is double spaced and appears at 
+  bottom. 
+
+  Added rubberspace at the top of the title page.
+
+  Replaced \pagebreak in the custom environments and programs with
+  \clearpage which formats better.
+
+  Made advisor appear in correct spot on abstract page (flushright) 
+  without making entire abstract flushright.
+
+v 0.8 2/8/2006
+  First public version
